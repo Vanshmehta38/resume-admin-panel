@@ -6,7 +6,7 @@ const Customers = () => {
     <>
       {' '}
       <BreadcrumbComponent data={customersBreadCrumb} />
-      Customer Page
+      Contact us
     </>
   )
 }
