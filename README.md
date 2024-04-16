@@ -1,4 +1,4 @@
-## Optilab Dashboard
+## Resume Dashboard
 
 ### Required to run project
 
