@@ -3,7 +3,6 @@
     "baseUrl": ".",
     "paths": {
       "@images/*": ["public/images/*"],
-      "@json/*": ["json/*"],
       "@styles-page/*": ["src/styles-page/*"],
       "@styles-layout/*": ["src/styles-layout/*"],
       "@breadcrumbs/*": ["src/utils/breadcrumbs/*"],
