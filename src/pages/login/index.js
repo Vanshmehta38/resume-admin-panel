@@ -42,7 +42,6 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 import { routes } from '@routes'
 
 // ** Custom Functions
-import { fetchData } from '@functions/device-info'
 import { errorMessage } from '@functions/error-message'
 import { loginRulesFunction } from '@validations/login'
 
@@ -51,7 +50,6 @@ import { useTranslation } from 'react-i18next'
 
 // ** Third Party Imports
 import moment from 'moment'
-import { deviceDetect } from 'react-device-detect'
 
 // ** Styles and Styled Components Imports
 import * as Styled from '@styles-page/login/styled-components'
@@ -64,7 +62,6 @@ const LoginPage = () => {
   // ** States
   const [rememberMe, setRememberMe] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
-  const [ipAddressData, setIpAddressData] = useState(null)
   const [loginButton, setLoginButton] = useState(false)
 
   // ** Hooks
@@ -87,27 +84,8 @@ const LoginPage = () => {
   // **  submit function
   const onSubmit = async data => {
     setLoginButton(true)
-    let ipData = ipAddressData
-    const deviceInfo = deviceDetect()
-
-    let deviceData = `${deviceInfo?.osName} `
-    if (deviceInfo?.model) {
-      deviceData = `${deviceInfo?.vendor} ${deviceInfo?.model},${deviceInfo?.os}`
-    }
-
-    if (!ipData) {
-      ipData = await fetchData()
-      setIpAddressData(ipData)
-    }
 
     let body = {
-      ip_address: ipData?.ip,
-      country: ipData?.country,
-      city: ipData?.city,
-      region: ipData?.region,
-      time_zone: ipData?.timezone,
-      device: `${deviceData}`,
-      lat_long: ipData?.loc,
       email: data?.email,
       password: data?.password,
       rememberMe: rememberMe
