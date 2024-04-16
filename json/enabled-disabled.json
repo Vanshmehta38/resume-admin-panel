@@ -1,0 +1,10 @@
+[
+  {
+    "value": "enabled",
+    "name": "Enabled"
+  },
+  {
+    "value": "disabled",
+    "name": "Disabled"
+  }
+]
